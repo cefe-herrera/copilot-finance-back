@@ -2,6 +2,7 @@
 // JWT_SECRET=tu-clave-secreta-super-segura-aqui
 // MONGO_URI=mongodb://localhost:27017/copilot-finance
 // PORT=5000
+// OPENAI_API_KEY=sk-tu-api-key-de-openai-aqui
 
 export const JWT_CONFIG = {
   secret: process.env.JWT_SECRET || 'copilot-finance-secret-key-2024',

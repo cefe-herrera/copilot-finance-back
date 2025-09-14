@@ -1,6 +1,9 @@
 import { Router } from 'express';
+import healthController from '../controllers/healthController.js';
+
 const router = Router();
 
-router.get('/health', (_req, res) => res.json({ status: 'ok' }));
+// GET /health - Verificar estado de salud de la API
+router.get('/health', healthController.checkHealth);
 
 export default router;

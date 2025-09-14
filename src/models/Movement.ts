@@ -49,8 +49,8 @@ const MovementSchema = new Schema<IMovement>({
     min: [0.01, 'El monto debe ser mayor a 0'],
     max: [999999999.99, 'El monto es demasiado grande'],
     // Guardar como centavos para evitar problemas de precisión
-    get: (value: number) => value / 100,
-    set: (value: number) => Math.round(value * 100)
+    get: (value: number) => value,
+    set: (value: number) => value
   },
   descripcion: {
     type: String,

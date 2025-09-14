@@ -4,14 +4,17 @@ import cors from 'cors';
 import connectDB from './config/database.js';
 import authRoutes from './routes/auth.js';
 import movementRoutes from './routes/movements.js';
+import ocrRoutes from './routes/ocr.js';
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' })); // Aumentar límite para imágenes base64
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Rutas
 app.use('/api/auth', authRoutes);
 app.use('/api/movements', movementRoutes);
+app.use('/api/ocr', ocrRoutes);
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
