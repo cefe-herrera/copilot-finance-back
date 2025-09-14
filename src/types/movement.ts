@@ -35,6 +35,46 @@ export interface MovementResponse {
     totalEgresos: number;
     balance: number;
     movimientosCount: number;
+    promedioIngreso?: number;
+    promedioEgreso?: number;
+    categorias?: Array<{
+      categoria: string;
+      total: number;
+      tipos: Array<{
+        tipo: string;
+        total: number;
+        count: number;
+      }>;
+    }>;
+  };
+  chart?: {
+    period: {
+      month: number;
+      year: number;
+      monthName: string;
+      startDate: string;
+      endDate: string;
+    };
+    labels: string[];
+    series: {
+      ingresos: {
+        name: string;
+        data: number[];
+        color: string;
+      };
+      egresos: {
+        name: string;
+        data: number[];
+        color: string;
+      };
+    };
+    summary: {
+      totalIngresos: number;
+      totalEgresos: number;
+      balance: number;
+      daysWithMovements: number;
+      totalDays: number;
+    };
   };
 }
 
